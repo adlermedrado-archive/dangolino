@@ -9,11 +9,14 @@ class Post < Mustache
   def initialize(post, comments)
     @post = post
     @comments = comments
-
   end
   
   def post_content
     @post[:post_content]
+  end
+
+  def post_title
+    @post[:post_title]
   end
   
   def post_date_published
