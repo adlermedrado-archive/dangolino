@@ -19,11 +19,3 @@ end
 
 process = Posting.new(ARGV.flags.year, ARGV.flags.month, ARGV.flags.file, ARGV.flags.link, ARGV.flags.title)
 process.post_it
-
-# puts "User has input:#{ ARGV.flags.year  } for dir"
-# puts "User has input:#{ ARGV.flags.month  } for log"
-# puts "User has input:#{ ARGV.flags.file  } for username"
-# puts "User has input:#{ ARGV.flags.link  } for password"
-
-# wordpress = Wordpress.new
-# wordpress.import
