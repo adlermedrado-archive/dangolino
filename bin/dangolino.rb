@@ -3,9 +3,14 @@
 require "rubygems"
 require "sequel"
 require "date"
-require "../lib/dangolino/import/post.rb"
-require "../lib/dangolino/posting.rb"
 require 'optiflag'
+require 'yaml'
+
+require "../lib/dangolino/config/dangolino_config.rb"
+conf = Dangolino_Config.new
+
+require conf.lib_dir + "/dangolino/import/post.rb"
+require conf.lib_dir + "/dangolino/posting.rb"
 
 module CLI extend OptiFlagSet
   flag "year"

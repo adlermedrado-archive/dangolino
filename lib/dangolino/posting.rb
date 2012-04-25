@@ -3,12 +3,15 @@
 class Posting
   
   def initialize(year, month, link, file, title)
+    
+    conf = Dangolino_Config.new
+
     @year = year
     @month = month
     @link = link
     @file = file
     @title = title    
-    @generate_dir = File.dirname(Dir.pwd) + "/generated"
+    @generate_dir = conf.generate_dir
     @post_date_published = DateTime.now.strftime("%d/%m/%Y - %H:%M:%S")
   end
   

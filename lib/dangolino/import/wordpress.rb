@@ -1,12 +1,12 @@
 # encoding: utf-8
 
-require "rubygems"
-require "sequel"
-
 class Wordpress
   def initialize
-    @generate_dir = File.dirname(Dir.pwd) + "/generated"
-    @con = Sequel.mysql(:user=>"root", :password=>"", :host=>"127.0.0.1", :database=>"blog_adler")
+    # dangolino_config = YAML.load_file('../config/settings.yml')
+    conf = Dangolino_Config.new
+    @generate_dir = conf.generate_dir
+    @con = Sequel.mysql(:user=>conf.mysql_user, :password=>conf.mysql_pass, 
+                        :host=>conf.mysql_host, :database=>conf.mysql_dbname)
   end
   
   def import
