@@ -9,7 +9,7 @@ require 'yaml'
 require "../lib/dangolino/config/dangolino_config.rb"
 conf = Dangolino_Config.new
 
-require conf.lib_dir + "/dangolino/import/post.rb"
+require conf.lib_dir + "/dangolino/view/post.rb"
 require conf.lib_dir + "/dangolino/posting.rb"
 
 module CLI extend OptiFlagSet

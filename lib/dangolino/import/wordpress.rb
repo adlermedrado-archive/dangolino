@@ -2,7 +2,6 @@
 
 class Wordpress
   def initialize
-    # dangolino_config = YAML.load_file('../config/settings.yml')
     conf = Dangolino_Config.new
     @generate_dir = conf.generate_dir
     @con = Sequel.mysql(:user=>conf.mysql_user, :password=>conf.mysql_pass, 
