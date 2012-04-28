@@ -13,6 +13,7 @@ class Posting
     @title = title    
     @generate_dir = conf.generate_dir
     @post_date_published = DateTime.now.strftime("%d/%m/%Y - %H:%M:%S")
+    @data_file = conf.lib_dir + "/dangolino/data/post_listing"
   end
   
   def post_it
@@ -34,10 +35,18 @@ class Posting
     post[:post_date_published] = @post_date_published
     comments = []
     current_post = Post.new(post,comments)
-    # post_content = current_post.render
+
     File.open(new_path + ".html", "w:utf-8") do |f|
       f.puts current_post.render
     end
+    tempfile = "/tmp/temp_post_listing"
+    
+    File.copy_stream(@data_file,tempfile)
+    f = File.open(@data_file,'w')
+    f.write("#{@year}/#{@month}/#{@file}|#{@title}|#{@post_date_published}\n#{File.open(tempfile,'r').read}")
+    f.close
+    File.delete(tempfile)
+    
   end
   
   def get_new_post_content

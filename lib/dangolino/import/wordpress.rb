@@ -4,8 +4,10 @@ class Wordpress
   def initialize
     conf = Dangolino_Config.new
     @generate_dir = conf.generate_dir
+    @data_file = conf.lib_dir + "/dangolino/data/post_listing"
     @con = Sequel.mysql(:user=>conf.mysql_user, :password=>conf.mysql_pass, 
                         :host=>conf.mysql_host, :database=>conf.mysql_dbname)
+    @url_site = conf.url
   end
   
   def import
@@ -27,7 +29,7 @@ class Wordpress
            
            @con.fetch(sql) do |post|
              comments = get_comments(post[:ID])
-             
+             post[:post_content] = post[:post_content].gsub("#{@url_site}/wp-content/uploads/", "#{@url_site}/images/")            
              current_post = Post.new(post,comments)
              post_content = current_post.render
              
@@ -41,6 +43,10 @@ class Wordpress
              
              File.open(where_to_save = @generate_dir + "/" + post[:year] + "/" + post[:month] + "/" + post[:post_name] + ".html", "w:utf-8") do |f|
                f.puts post_content
+             end
+             
+             File.open(@data_file, "a:utf-8") do |f|
+               f << "#{post[:year]}/#{post[:month]}/#{post[:post_name]}|#{post[:post_title]}|#{post[:post_date_published]}\n"
              end
              
            end           

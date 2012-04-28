@@ -1,6 +1,7 @@
 require "rubygems"
 require 'yaml'
 require "sequel"
+require "base64"
 require "../lib/dangolino/config/dangolino_config.rb"
 
 conf = Dangolino_Config.new
