@@ -1,0 +1,16 @@
+<html>
+	<body>
+      <h1>Lista de todos os meus posts desde 2006</h1>
+   	  <p>Enjoy :)</p>
+	  {{#posts}}
+	  <div>
+        <h2>{{{date}}} - {{{title}}}</h3>
+        <p>{{{link}}} </p>
+        <p><a class="btn btn-small" href="{{{link}}}">ler post &raquo;</a></p>
+	  </div>
+	  {{/posts}}
+      <footer>
+        <p>&copy; Adler Medrado 1996-2012 | powered by <a href="http://github.com/adlermedrado/dangolino">dangolino</a></p>
+      </footer>
+  </body>
+</html>
