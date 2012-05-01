@@ -12,12 +12,12 @@ class GenerateRss
     rss = RSS::Maker.make("atom") do |maker|
       maker.channel.author = "adler"
       maker.channel.updated = Time.now.to_s
-      maker.channel.about = "http://#{@url}/feed"
+      maker.channel.about = "#{@url}/feed"
       maker.channel.title = "Blog do Adler"
 
       (0..2).each do |i|
         maker.items.new_item do |item|
-          item.link = "#{@url}/#{posts[i]['link']}"
+          item.link = "#{posts[i]['link']}"
           item.title = posts[i]['title']
           item.updated = posts[i]['date']
         end
