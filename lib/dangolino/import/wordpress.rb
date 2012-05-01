@@ -29,7 +29,8 @@ class Wordpress
            
            @con.fetch(sql) do |post|
              comments = get_comments(post[:ID])
-             post[:post_content] = post[:post_content].gsub("#{@url_site}/wp-content/uploads/", "#{@url_site}/images/")            
+             post[:post_content] = post[:post_content].gsub("#{@url_site}/wp-content/uploads/", "#{@url_site}/images/")
+             post[:post_url] = "#{@url_site}/#{post[:year]}/#{post[:month]}/#{post[:post_name]}.html"
              current_post = Post.new(post,comments)
              post_content = current_post.render
              

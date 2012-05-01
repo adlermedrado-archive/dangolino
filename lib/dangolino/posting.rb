@@ -14,6 +14,7 @@ class Posting
     @generate_dir = conf.generate_dir
     @post_date_published = DateTime.now.strftime("%d/%m/%Y - %H:%M:%S")
     @data_file = conf.lib_dir + "/dangolino/data/post_listing"
+    @url = conf.url
   end
   
   def post_it
@@ -33,6 +34,7 @@ class Posting
     post[:post_content] = post_content
     post[:post_title] = @title
     post[:post_date_published] = @post_date_published
+    post[:post_url] = "#{@url}/#{@year}/#{@month}/#{@file}.html"
     comments = []
     current_post = Post.new(post,comments)
 

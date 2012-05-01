@@ -1,6 +1,15 @@
-Template Example<br />
-<h1>{{{post_title}}}</h1>
-<p>Teste, exemplo, coisa e tal.</p>
-{{{post_content}}}-{{{post_date_published}}}
-{{{comments}}}
-Gerado em {{generated_at}}
+<html>
+  <body>
+      <div>
+            <h1>{{{post_title}}}</h1>
+      </div><!--/row-->
+	  <div>
+	        {{{post_content}}}
+	        <p>Post date: {{{post_date_published}}}</p>			
+	  </div><!--/row-->
+      <footer>
+        <p>&copy; Adler Medrado 1996-2012 | powered by <a href="http://github.com/adlermedrado/dangolino">dangolino</a> </p>
+      </footer>
+    </div><!--/.fluid-container-->
+  </body>
+</html>
