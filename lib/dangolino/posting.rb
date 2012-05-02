@@ -2,7 +2,7 @@
 
 class Posting
   
-  def initialize(year, month, link, file, title)
+  def initialize(year, month, link, file, title, input_format)
     
     conf = Dangolino_Config.new
 
@@ -15,6 +15,7 @@ class Posting
     @post_date_published = DateTime.now.strftime("%d/%m/%Y - %H:%M:%S")
     @data_file = conf.lib_dir + "/dangolino/data/post_listing"
     @url = conf.url
+    @input_format = input_format
   end
   
   def post_it
@@ -56,7 +57,13 @@ class Posting
     File.open(@link).each_line{ |s|
       file_content << s
     }
-    file_content
+    
+    if (@input_format == "markdown")
+      markdown = MarkdownParser.new
+      file_content = markdown.to_html(file_content)
+    else
+      file_content
+    end
   end
   
   def create_dir(path)

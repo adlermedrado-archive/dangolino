@@ -19,17 +19,31 @@ require conf.lib_dir + "/dangolino/view/all_posts.rb"
 require conf.lib_dir + "/dangolino/generate_index.rb"
 require conf.lib_dir + "/dangolino/generate_all_posts.rb"
 require conf.lib_dir + "/dangolino/generate_rss.rb"
+require conf.lib_dir + "/dangolino/markdown/markdown_parser.rb"
+
 module CLI extend OptiFlagSet
   flag "year"
   flag "month"
   flag "file"
   flag "link"
-  flag "title"  
+  flag "title"
+  optional_flag "format"  
   usage_flag "help"
   and_process!
 end 
 puts "creating file post..."
-process = Posting.new(ARGV.flags.year, ARGV.flags.month, ARGV.flags.file, ARGV.flags.link, ARGV.flags.title)
+
+if ARGV.flags.format?
+  if ARGV.flags.format == "markdown"
+    input_format = ARGV.flags.format
+  else
+    input_format = "html"
+  end
+else
+  input_format = "html"
+end
+
+process = Posting.new(ARGV.flags.year, ARGV.flags.month, ARGV.flags.file, ARGV.flags.link, ARGV.flags.title, input_format)
 process.post_it
 puts "done..."
 
