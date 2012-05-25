@@ -8,7 +8,10 @@ require 'yaml'
 require 'base64'
 require 'rss'
 
-require "../lib/dangolino/config/dangolino_config.rb"
+config_path = File.expand_path(File.dirname(__FILE__))
+config_path = config_path.gsub('/bin', '/lib')
+
+require config_path + "/dangolino/config/dangolino_config.rb"
 conf = Dangolino_Config.new
 
 require conf.lib_dir + "/dangolino/view/post.rb"

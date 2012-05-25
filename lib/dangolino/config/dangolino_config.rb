@@ -10,7 +10,10 @@ class Dangolino_Config
   
   private
   def parse
-    conf = YAML.load_file(File.dirname(Dir.pwd) + "/lib/dangolino/config/settings.yml")
+    config_path = File.expand_path(File.dirname(__FILE__))
+    config_path = config_path.gsub('/bin', '/lib')
+    # conf = YAML.load_file(File.dirname(Dir.pwd) + "/lib/dangolino/config/settings.yml")
+    conf = YAML.load_file("#{config_path}/settings.yml")
     @root_dir = conf["path"]["root_dir"]
     @generate_dir = conf["path"]["generate_dir"]
     @tempalte_dir = conf["path"]["template_dir"]
