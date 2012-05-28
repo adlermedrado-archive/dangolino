@@ -1,3 +1,5 @@
-# Just my simple blog engine, *it's a static site generator* written in Ruby.
+# Just my simple blog engine
 
-##It depends on sequel(for mysql import), optiflag, redcarpet and mustache##
+*it's a static site generator* written in Ruby.
+
+### It depends on sequel(for mysql import), optiflag, redcarpet and mustache##
