@@ -5,6 +5,7 @@ require "mustache"
 class Post < Mustache
 
   self.template_path = File.dirname(Dir.pwd) + "/templates"
+  puts self.template_path
   
   def initialize(post, comments)
     @post = post

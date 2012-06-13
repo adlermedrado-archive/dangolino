@@ -2,9 +2,9 @@
 
 class Posting
   
-  def initialize(year, month, link, file, title, input_format)
+  def initialize(year, month, link, file, title, input_format, settings_file)
     
-    conf = Dangolino_Config.new
+    conf = Dangolino_Config.new(settings_file)
 
     @year = year
     @month = month

@@ -1,8 +1,8 @@
 class LoadPosts
 
-  def initialize
-    config = Dangolino_Config.new
-    @data_file = config.lib_dir + "/dangolino/data/post_listing"
+  def initialize(settings_file)
+    config = Dangolino_Config.new(settings_file)
+    @data_file = config.datafile
     @generate_dir = "#{config.generate_dir}/feed/index.html"
     @url = config.url
   end

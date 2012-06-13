@@ -4,9 +4,10 @@ path:
     generate_dir: /Users/adler/dev/projects/dangolino/site
     template_dir: /Users/adler/dev/projects/dangolino/templates
     lib_dir: /Users/adler/dev/projects/dangolino/lib
+    datafile: /Users/adler/dev/projects/dangolino/lib/dangolino/data/post_listing
     url: http://your-url
 mysql:
     host: 127.0.0.1
     user: root
     pass: ""
-    dbname: my_db
+    dbname: blog_adler
