@@ -3,11 +3,10 @@
 require "mustache"
 
 class Index < Mustache
-
-  self.template_path = File.dirname(Dir.pwd) + "/templates"
   
-  def initialize(data)
+  def initialize(data, config)
     @data = data
+    self.template_path = config.template_dir
   end
   
   def title_1

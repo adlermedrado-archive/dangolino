@@ -3,13 +3,11 @@
 require "mustache"
 
 class Post < Mustache
-
-  self.template_path = File.dirname(Dir.pwd) + "/templates"
-  puts self.template_path
   
-  def initialize(post, comments)
+  def initialize(post, comments, conf)
     @post = post
     @comments = comments
+    self.template_path = conf.template_dir    
   end
   
   def post_url
