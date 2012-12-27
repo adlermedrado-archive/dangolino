@@ -70,4 +70,4 @@ I did it for myself, i use this on my personal website: http://adlermedrado.com.
 
 It works fine for me, but it doesn't means that it will work fine for you.
 
-
+[![endorse](http://api.coderwall.com/adlermedrado/endorsecount.png)](http://coderwall.com/adlermedrado)
